@@ -16,8 +16,8 @@ EOT
     lun                       = number
     managed_disk_id           = string
     virtual_machine_id        = string
-    create_option             = optional(string, "Attach")
-    write_accelerator_enabled = optional(bool, false)
+    create_option             = optional(string) # Default: "Attach"
+    write_accelerator_enabled = optional(bool)   # Default: false
   }))
 }
 
