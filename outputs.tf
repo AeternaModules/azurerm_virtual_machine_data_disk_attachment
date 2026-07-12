@@ -1,3 +1,7 @@
+output "virtual_machine_data_disk_attachments_id" {
+  description = "Map of id values across all virtual_machine_data_disk_attachments, keyed the same as var.virtual_machine_data_disk_attachments"
+  value       = { for k, v in azurerm_virtual_machine_data_disk_attachment.virtual_machine_data_disk_attachments : k => v.id }
+}
 output "virtual_machine_data_disk_attachments_caching" {
   description = "Map of caching values across all virtual_machine_data_disk_attachments, keyed the same as var.virtual_machine_data_disk_attachments"
   value       = { for k, v in azurerm_virtual_machine_data_disk_attachment.virtual_machine_data_disk_attachments : k => v.caching }
