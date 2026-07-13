@@ -16,17 +16,9 @@ EOT
     lun                       = number
     managed_disk_id           = string
     virtual_machine_id        = string
-    create_option             = optional(string) # Default: "Attach"
-    write_accelerator_enabled = optional(bool)   # Default: false
+    create_option             = optional(string)
+    write_accelerator_enabled = optional(bool)
   }))
-  validation {
-    condition = alltrue([
-      for k, v in var.virtual_machine_data_disk_attachments : (
-        v.lun >= 0
-      )
-    ])
-    error_message = "must be at least 0"
-  }
   # --- Unconfirmed validation candidates, derived from azurerm_virtual_machine_data_disk_attachment's provider source ---
   # Not auto-enabled: either a bespoke provider validator we can't safely translate,
   # or a path that crosses a list-typed block (needs its own for_each wrapping).
@@ -39,6 +31,9 @@ EOT
   #   source:    [from commonids.ValidateVirtualMachineID] !ok
   # path: virtual_machine_id
   #   source:    [from commonids.ValidateVirtualMachineID] err != nil
+  # path: lun
+  #   condition: value >= 0
+  #   message:   must be at least 0
   # path: caching
   #   source:    validation.StringInSlice value list is not a literal []string - likely a generated PossibleValuesFor*() helper; resolve separately
   # path: create_option
