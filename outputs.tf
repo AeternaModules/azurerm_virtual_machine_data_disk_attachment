@@ -1,29 +1,29 @@
 output "virtual_machine_data_disk_attachments_id" {
   description = "Map of id values across all virtual_machine_data_disk_attachments, keyed the same as var.virtual_machine_data_disk_attachments"
-  value       = { for k, v in azurerm_virtual_machine_data_disk_attachment.virtual_machine_data_disk_attachments : k => v.id }
+  value       = { for k, v in azurerm_virtual_machine_data_disk_attachment.virtual_machine_data_disk_attachments : k => v.id if v.id != null && length(v.id) > 0 }
 }
 output "virtual_machine_data_disk_attachments_caching" {
   description = "Map of caching values across all virtual_machine_data_disk_attachments, keyed the same as var.virtual_machine_data_disk_attachments"
-  value       = { for k, v in azurerm_virtual_machine_data_disk_attachment.virtual_machine_data_disk_attachments : k => v.caching }
+  value       = { for k, v in azurerm_virtual_machine_data_disk_attachment.virtual_machine_data_disk_attachments : k => v.caching if v.caching != null && length(v.caching) > 0 }
 }
 output "virtual_machine_data_disk_attachments_create_option" {
   description = "Map of create_option values across all virtual_machine_data_disk_attachments, keyed the same as var.virtual_machine_data_disk_attachments"
-  value       = { for k, v in azurerm_virtual_machine_data_disk_attachment.virtual_machine_data_disk_attachments : k => v.create_option }
+  value       = { for k, v in azurerm_virtual_machine_data_disk_attachment.virtual_machine_data_disk_attachments : k => v.create_option if v.create_option != null && length(v.create_option) > 0 }
 }
 output "virtual_machine_data_disk_attachments_lun" {
   description = "Map of lun values across all virtual_machine_data_disk_attachments, keyed the same as var.virtual_machine_data_disk_attachments"
-  value       = { for k, v in azurerm_virtual_machine_data_disk_attachment.virtual_machine_data_disk_attachments : k => v.lun }
+  value       = { for k, v in azurerm_virtual_machine_data_disk_attachment.virtual_machine_data_disk_attachments : k => v.lun if v.lun != null }
 }
 output "virtual_machine_data_disk_attachments_managed_disk_id" {
   description = "Map of managed_disk_id values across all virtual_machine_data_disk_attachments, keyed the same as var.virtual_machine_data_disk_attachments"
-  value       = { for k, v in azurerm_virtual_machine_data_disk_attachment.virtual_machine_data_disk_attachments : k => v.managed_disk_id }
+  value       = { for k, v in azurerm_virtual_machine_data_disk_attachment.virtual_machine_data_disk_attachments : k => v.managed_disk_id if v.managed_disk_id != null && length(v.managed_disk_id) > 0 }
 }
 output "virtual_machine_data_disk_attachments_virtual_machine_id" {
   description = "Map of virtual_machine_id values across all virtual_machine_data_disk_attachments, keyed the same as var.virtual_machine_data_disk_attachments"
-  value       = { for k, v in azurerm_virtual_machine_data_disk_attachment.virtual_machine_data_disk_attachments : k => v.virtual_machine_id }
+  value       = { for k, v in azurerm_virtual_machine_data_disk_attachment.virtual_machine_data_disk_attachments : k => v.virtual_machine_id if v.virtual_machine_id != null && length(v.virtual_machine_id) > 0 }
 }
 output "virtual_machine_data_disk_attachments_write_accelerator_enabled" {
   description = "Map of write_accelerator_enabled values across all virtual_machine_data_disk_attachments, keyed the same as var.virtual_machine_data_disk_attachments"
-  value       = { for k, v in azurerm_virtual_machine_data_disk_attachment.virtual_machine_data_disk_attachments : k => v.write_accelerator_enabled }
+  value       = { for k, v in azurerm_virtual_machine_data_disk_attachment.virtual_machine_data_disk_attachments : k => v.write_accelerator_enabled if v.write_accelerator_enabled != null }
 }
 
